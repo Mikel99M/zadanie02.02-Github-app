@@ -48,6 +48,11 @@ public class MyGithubService {
         } catch (FeignException.FeignClientException e) {
             log.error("THE ERROR IN SERVICE" + e.getMessage());
             throw new UserNotFoundException("No user with name '" + user + "' found.");
+        } catch (FeignException fe) {
+            if (fe.status() == 403) {
+                log.error("GitHub API rate limit exceeded");
+                throw new RuntimeException("GitHub API rate limit exceeded");
+            }
         }
     }
 

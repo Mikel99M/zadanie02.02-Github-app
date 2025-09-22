@@ -20,4 +20,12 @@ public class ErrorHandler {
         return new ErrorUserResponseDto(HttpStatus.NOT_FOUND, ex.getMessage());
     }
 
+    @ExceptionHandler(WrongAcceptHeaderException.class)
+    @ResponseBody
+    @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
+    public ErrorUserResponseDto handleException(WrongAcceptHeaderException ex) {
+        log.warn("error caused by wrong accept header");
+        return new ErrorUserResponseDto(HttpStatus.NOT_ACCEPTABLE, ex.getMessage());
+    }
+
 }
