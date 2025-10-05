@@ -24,6 +24,6 @@ public class GithubController {
         if (!"application/json".equals(Accept)) {
             throw new WrongAcceptHeaderException("Wrong accept header content type");
         }
-        return ResponseEntity.ok(service.fetchAllRepositoriesNotForks(userName));
+        return ResponseEntity.ok(service.fetchAllNonForksRepositories(userName));
     }
 }

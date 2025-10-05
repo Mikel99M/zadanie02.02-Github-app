@@ -3,6 +3,7 @@ package com.githubapp;
 import com.githubapp.dto.Branch;
 import com.githubapp.dto.FinalRepositoryResponse;
 import com.githubapp.dto.RepositoryResponse;
+import com.githubapp.dto.User;
 import com.githubapp.error.UserNotFoundException;
 import feign.FeignException;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,7 @@ public class MyGithubService {
 
     private final GithubProxy proxy;
 
-    public List<FinalRepositoryResponse> fetchAllRepositoriesNotForks(String user) {
+    public List<FinalRepositoryResponse> fetchAllNonForksRepositories(String user) {
         checkIfUserExists(user);
 
         List<RepositoryResponse> repos = proxy.getRepositories(user).stream()
@@ -44,10 +45,14 @@ public class MyGithubService {
 
     private void checkIfUserExists(String user) {
         try {
-            proxy.getUserByUserName(user);
+            User response = proxy.getUserByUserName(user);
+            if (response == null) {
+                log.error("A user with name '%s' does not exist".formatted(user));
+                throw new UserNotFoundException("No user with name '%s' found.".formatted(user));
+            }
         } catch (FeignException.FeignClientException e) {
             log.error("THE ERROR IN SERVICE" + e.getMessage());
-            throw new UserNotFoundException("No user with name '" + user + "' found.");
+            throw new UserNotFoundException("No user with name '%s' found.".formatted(user));
         } catch (FeignException fe) {
             if (fe.status() == 403) {
                 log.error("GitHub API rate limit exceeded");
