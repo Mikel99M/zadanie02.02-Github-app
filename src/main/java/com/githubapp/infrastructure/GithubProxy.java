@@ -1,8 +1,8 @@
-package com.githubapp;
+package com.githubapp.infrastructure;
 
-import com.githubapp.dto.Branch;
-import com.githubapp.dto.RepositoryResponse;
-import com.githubapp.dto.User;
+import com.githubapp.infrastructure.controller.dto.githubAPI.Branch;
+import com.githubapp.infrastructure.controller.dto.githubAPI.RepositoryResponse;
+import com.githubapp.infrastructure.controller.dto.githubAPI.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

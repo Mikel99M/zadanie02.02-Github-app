@@ -1,5 +1,6 @@
 package com.githubapp;
 
+import com.githubapp.infrastructure.GithubProxy;
 import feign.FeignException;
 import feign.RetryableException;
 import lombok.RequiredArgsConstructor;

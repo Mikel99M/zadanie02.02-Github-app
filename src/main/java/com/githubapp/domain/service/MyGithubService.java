@@ -1,10 +1,11 @@
-package com.githubapp;
+package com.githubapp.domain.service;
 
-import com.githubapp.dto.Branch;
-import com.githubapp.dto.FinalRepositoryResponse;
-import com.githubapp.dto.RepositoryResponse;
-import com.githubapp.dto.User;
-import com.githubapp.error.UserNotFoundException;
+import com.githubapp.infrastructure.GithubProxy;
+import com.githubapp.infrastructure.controller.dto.githubAPI.Branch;
+import com.githubapp.infrastructure.controller.dto.githubAPI.FinalRepositoryResponse;
+import com.githubapp.infrastructure.controller.dto.githubAPI.RepositoryResponse;
+import com.githubapp.infrastructure.controller.dto.githubAPI.User;
+import com.githubapp.infrastructure.controller.error.UserNotFoundException;
 import feign.FeignException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

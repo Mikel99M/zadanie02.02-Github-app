@@ -1,6 +1,6 @@
-package com.githubapp.error;
+package com.githubapp.infrastructure.controller.error;
 
-import com.githubapp.dto.ErrorUserResponseDto;
+import com.githubapp.infrastructure.controller.dto.githubAPI.ErrorUserResponseDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
 @Log4j2

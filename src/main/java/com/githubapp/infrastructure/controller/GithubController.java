@@ -1,7 +1,8 @@
-package com.githubapp;
+package com.githubapp.infrastructure.controller;
 
-import com.githubapp.dto.FinalRepositoryResponse;
-import com.githubapp.error.WrongAcceptHeaderException;
+import com.githubapp.domain.service.MyGithubService;
+import com.githubapp.infrastructure.controller.dto.githubAPI.FinalRepositoryResponse;
+import com.githubapp.infrastructure.controller.error.WrongAcceptHeaderException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;

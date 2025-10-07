@@ -1,4 +1,4 @@
-package com.githubapp.dto;
+package com.githubapp.infrastructure.controller.dto.githubAPI;
 
 import lombok.Builder;
 
